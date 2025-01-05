@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("https://media.licdn.com/dms/image/v2/D5612AQGRmd27pihzxg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1693189192191?e=2147483647&v=beta&t=UBaJ8TWauZYdvxHs3yRQf9EOO3vbBsrzRbWMZCMiOQw") no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .signup-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .signup-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #3a3a3a;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #5d4037;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #5d4037;
+            border-radius: 5px;
+            background-color: #f1e4c6;
+            color: #3a3a3a;
+        }
+        .form-group button, .form-group input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #6d4c41;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .form-group button:hover, .form-group input[type="submit"]:hover {
+            background-color: #3e2723;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .login-link a {
+            text-decoration: none;
+            color: #6d4c41;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Create Account</h2>
+        <form th:object="${cseform}" th:action="@{/register}" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" th:field="*{name}" placeholder="Enter name" required>
+            </div>
+            <div class="form-group">
+                <label for="roll">Roll No:</label>
+                <input type="text" id="roll" th:field="*{roll}" placeholder="Enter RollNo" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" th:field="*{password}" placeholder="Enter Password" required>
+            </div>
+            <input type="hidden" id="role" name="role" th:value="'Student'">
+            <div class="form-group">
+                <input type="submit" value="Sign up">
+            </div>
+        </form>
+        <div class="login-link">
+            <p>Already have an account? <a th:href="@{/login}">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdminDashBoard</title>
+<style>
+    /* Remove default margin and padding from the body */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .div1 {
+        margin: 0;  /* Remove margin */
+        padding: 0; /* Remove padding */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 90px;
+		background-color: rgba(169, 113, 9, 0.905);
+	
+    }
+
+    .logo {
+        width: 180;
+        height: 80px;
+        margin-right: 20px;
+    }
+
+    
+    /* Style for the second div (Navigation bar) */
+    .div2 {
+        border-radius: 10px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        background-color: rgba(152, 95, 10, 0.521);
+    }
+
+    .logo-section {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 20%; 
+        margin-left: 230px;
+    }    
+    button {
+        background-color: #e7ae1d;
+        color: white;
+        padding: 10px 20px;
+        border: 1px solid rgba(0, 0, 0, 0.427);
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    .center-buttons {
+        display: flex;
+        flex-direction: column;
+        height:230px ;
+        width:330px;
+        margin-top: 100px;
+        /* border: 1px solid black; */
+    
+        animation: fadeIn 1.5s ease-in-out;
+
+    }
+    .center-buttons button {
+        margin: 10px 0;
+        padding: 15px 30px;
+        font-size: 18px;
+	background-color: rgba(6, 3, 3, 0);
+    }
+    .div4{
+        /* border: 1px solid rgba(253, 249, 249, 0.007); */
+        background-image: url("https://t3.ftcdn.net/jpg/09/22/09/48/360_F_922094842_5qov76BhvqazmwOcrvGseQsiAlmZ53K0.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        height: 510px;
+        width: 1422px;
+    }
+    .div5{
+        height: 380px;
+        width:800px;
+        margin-left: 90px;
+        margin-top: 40px;
+    }
+    .user{
+         height: 45px;
+        width: 50px;
+        margin-right: 10px;
+    }
+    .image{
+        background-image: url('/images/Arrow.png'); 
+        background-size: cover;
+        height: 60px;
+        width: 320px;
+        color: white;
+        padding: 20px 30px;
+        border: none;
+        cursor: pointer;
+        margin-left: 5px;
+        font-size: 16px;
+    }
+  .form {
+            display: flex;
+            justify-content: center;
+            margin-left: 100px;
+        }
+  	form {
+            
+            border: 5px solid rgba(253, 248, 248, 0.543);
+            border-radius: 15px;
+            align-items: center;
+            background-color: rgba(175, 179, 179, 0.04);
+            width: 650px;
+            height: 380px;
+            margin: 20px;
+        }
+        th {
+            font-size: 20px;
+            color: rgb(8, 8, 8);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 1000;
+        }
+        input, select {
+            background: transparent;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid rgb(246, 249, 248);
+            font-size: 20px;
+            color: rgb(5, 5, 4);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 100;
+        }
+        input::placeholder {
+            color: black;
+            font-size: 18px;
+        }
+        .button {
+            border: 2px solid rgb(24, 22, 22);
+            border-radius: 25px;
+            padding: 10px;
+            width: 140px;
+            margin-top: 10px;
+            margin-right: 90px;
+            color: black;
+        }
+        .button:hover {
+            background-color: rgba(102, 67, 2, 0.914);
+            color: rgb(254, 253, 253);
+            border-color: rgb(250, 249, 249);
+        }
+        .text {
+            font-size: 40px;
+            color:rgba(102, 67, 2, 0.914);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: 500;
+            text-decoration: underline;
+        }
+        .table {
+            margin-left: 60px;
+        }
+        .container {
+            background: #ffffff26;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 800px;
+            margin-left: 100px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .logout-button {
+		    background-color: #e7ae1d;
+		    color: white;
+		    padding: 10px 20px;
+		    border: 1px solid rgba(0, 0, 0, 0.427);
+		    border-radius: 5px;
+		    cursor: pointer;
+		    margin-left: 10px;
+		    text-decoration: none; 
+		    display: inline-block; 
+		    text-align: center;
+		    font-size:13px;
+		}
+		.div6{
+            margin-left: 350px;
+            color:whitesmoke;
+        }
+</style>
+</head>
+<body>
+<div>
+    <div class="div1">
+        <img th:src="@{/images/Adityalogo1.png}" alt="Aditya College Logo" class="logo">
+<h1 style="font-size: 60px; margin: 0px; color: whitesmoke;" 
+    th:text="'Aditya Library Management'">
+</h1>
+    </div>
+    <div class="div2">
+        <div>
+            <button type="button" onclick="window.location.href='/display'">Home</button>
+        </div>
+        <div>
+            <a th:href="@{/login}" class="logout-button">logout</a>
+        </div>
+        <div class="div6">
+            <h2>WelcomeToAdminDashBoard...!</h2>
+        </div>
+		<div class="logo-section">
+            <img th:src="@{/images/userlogo.png}" class="user">
+            <h10>Harshitha</h10>
+        </div>
+
+    </div>
+</div>
+
+<div class="div4">
+<div class="center-buttons">
+    <button type="button" onclick="showForm('Entryform')" class="image">User Data</button>
+    <button type="button" onclick="showForm('addBooksForm')" class="image">Add Books</button>
+    <button type="button" onclick="showForm('pendingListTable')" class="image">Pending Lists</button>
+</div>
+
+<div class="div5">
+<div id="Entryform" style="display:none;" class="form">
+    <form  th:object="${userform}" th:action="@{/bookuserentry}" method="post">
+        <h1 align="center" class="text">Register Entry</h1>
+        <table class="table" border="0" align="center" cellpadding="0px" cellspacing="10px" text="20px" width="600px">
+            <tr>
+                <th><label>Name:</label></th>
+                <td><input type="text" name="name" required></td>
+            </tr>
+            <tr>
+                <th><label>Rollno:</label></th>
+                <td><input type="text" name="rollno" required></td>
+            </tr>
+            <tr>
+                <th><label>Book Name:</label></th>
+                <td><input type="text" name="bookname" required></td>
+            </tr>
+            <tr>
+                <th><label>Taken Date:</label></th>
+                <td><input type="date" name="date" required></td>
+            </tr>
+            <tr>
+                <th><label>Submit Date:</label></th>
+                <td><input type="date" name="sdate" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input class="button" type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div id="addBooksForm" style="display:none;" class="form">
+    <form  th:object="${bookdata}" th:action="@{/addbooks}" method="post">
+        <h1 align="center" class="text">Add Books</h1>
+<table class="table" border="0" align="center" cellpadding="0px" cellspacing="10px" text="20px" width="600px">
+    <tr>
+        <th><label>Book Name:</label></th>
+        <td><input type="text" name="bookname" required></td>
+    </tr>
+    <tr>
+        <th><label>Author:</label></th>
+        <td><input type="text" name="author" required></td>
+    </tr>
+    <tr>
+        <th><label>Book Id:</label></th>
+        <td><input type="text" name="bookid" required></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center"><input class="button" type="submit" value="Add Book"></td>
+    </tr>
+</table>
+</form>
+</div>
+<div id="pendingListTable" style="display:none;" class="container">
+    <h1 align="center" class="text">Pending Users</h1>
+    <table  border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Book Name</th>
+                <th>Taken Date</th>
+                <th>Submit Date</th>
+                <th>Fine</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over the "csedata" list -->
+            <tr th:each="cse1, cnt : ${csedata}">
+                <td th:text="${cse1.id}"></td>
+                <td th:text="${cse1.name}"></td>
+                <td th:text="${cse1.rollno}"></td>
+                <td th:text="${cse1.bookname}"></td>
+                <td th:text="${cse1.date}"></td>
+                <td th:text="${cse1.sdate}"></td>
+                <td th:text="${cse1.fine}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+</div>
+</div>
+<script>
+    function showForm(formId) {
+	document.getElementById("Entryform").style.display = "none";
+    document.getElementById("addBooksForm").style.display = "none";
+    document.getElementById("pendingListTable").style.display = "none";
+
+        
+        document.getElementById(formId).style.display = "block";
+                    }
+
+</script>
+
+</body>
+</html>

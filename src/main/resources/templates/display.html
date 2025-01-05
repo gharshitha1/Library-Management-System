@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.oddrow{
+background-color:cyan
+}
+.evenrow{
+background-color:pink
+}
+</style>
+</head>
+<body>
+<table border="1">
+<tbody>
+<tr th:each="cse1, cnt:${csedata}" th:classappend="${cnt.odd}?'oddrow':'evenrow'">
+    <td th:text="${cnt.count}"></td>
+    <td th:text="${cse1.id}"></td>
+    <td th:text="${cse1.name}"></td>
+    <td th:text="${cse1.rollno}"></td>
+    <td th:text="${cse1.bookname}"></td>
+    <td th:text="${cse1.date}"></td>
+    <td th:text="${cse1.sdate}"></td>
+</tr>
+</tbody>
+
+</table>
+</body>
+</html>

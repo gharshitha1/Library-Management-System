@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UserDashBoard</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+     
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .div1 {
+        margin: 0;  
+        padding: 0; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 90px;
+        background:linear-gradient( #e4a70f,rgb(24, 21, 21));
+        color: white;
+        font-size: 30px;
+    }
+
+    .logo {
+        width: 180;
+        height: 80px;
+        margin-right: 20px;
+        /* border: 1px solid black; */
+    }
+
+    .div2 {
+        border-radius: 10px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        background-color: rgba(152, 95, 10, 0.521);
+
+    }
+    .div2 button{
+    	margin-left: 10px;
+        background-color: #e7ae1d;
+        border: 1px solid rgba(0, 0, 0, 0.427);
+		border-radius: 5px;
+    }
+
+    /* Adjustments for the layout */
+    .logo-section {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 20%; 
+        margin-left: 930px;
+
+    }
+    .search-bar {
+        display: flex;
+        align-items: center;
+        margin-left: 390px;
+        
+        
+    
+    }
+    .search-bar button{
+        background-color:  #e7ae1d;
+        border: 1px solid rgba(0, 0, 0, 0.388);
+        border-radius: 10px;
+        margin:0;
+        
+    }
+	.search-bar form {
+        display: flex;
+        gap: 0; 
+    }
+    .search-bar input {
+    	margin:0;
+        padding: 8px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        justify-content: center;
+        width: 240px;
+    }
+
+    button {
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Center the buttons vertically on the page */
+    .center-buttons {
+        display: flex;
+        flex-direction: column;
+        height:230px ;
+        width:330px;
+        margin-top: 100px;
+        /* border: 1px solid black; */
+        animation: fadeIn 1.5s ease-in-out;
+
+    }
+
+    .center-buttons button {
+        margin: 10px 0;
+        padding: 15px 30px;
+        font-size: 18px;
+        background-color: #f7f5f100;
+    }
+    .div4{
+        display: flex;
+        background: url("https://img.freepik.com/premium-photo/stack-books-with-word-library-cover_865967-29031.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 508px;
+    }
+    .div5{
+        /* border:1px solid black; */
+        width:800px;
+        margin-left: 170px;
+        margin-top: 40px;
+    }
+    .image{
+        background-image: url('/images/Arrow.png'); 
+        background-size: cover;
+        height: 60px;
+        width: 320px;
+        color: rgb(251, 248, 248);
+        padding: 20px 30px;
+        border: none;
+        cursor: pointer;
+        margin-left: 5px;
+        font-size: 16px;
+    }
+    .user{
+        height: 45px;
+        width: 50px;
+        margin-left: 150px;
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+
+    }
+    .container {
+            background: #ffffff82;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 800px;
+        }
+
+        /* Heading */
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 24px;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        th {
+            background-color:#e7ae1d;
+            color: #fff;
+        }
+
+        td {
+            color: #131313;
+        }
+        .logout-button {
+		    background-color: #e7ae1d;
+		    color: white;
+		    padding: 10px 20px;
+		    border: 1px solid rgba(0, 0, 0, 0.427);
+		    border-radius: 5px;
+		    cursor: pointer;
+		    margin-left: 10px;
+		    text-decoration: none; 
+		    display: inline-block; 
+		    text-align: center;
+		    font-size:13px;
+		}
+
+</style>
+</head>
+<body>
+
+<!-- Top Navigation Bar -->
+<div>
+    <div class="div1">
+        <img src="/images/Adityalogo1.png" alt="Aditya College Logo" class="logo">
+        <h1>Aditya Library Management</h1>
+    </div>
+    <div class="div2">
+        <div>
+            <button type="button" onclick="window.location.href='/getdata'" class="login-button">Home</button>        </div>
+        <div>
+            <a th:href="@{/login}" class="logout-button">Logout</a> <!-- Logout button in place of search -->
+      </div>
+        <div class="search-bar">
+            <form th:action="@{/search}" th:object="${searchform}" method="post">
+                <input type="text" id="searchInput" name="search" placeholder="Search">
+                <button type="submit">Search</button>
+            </form>        
+        </div>
+        <div class="user">
+          <img src="/images/userlogo.png" class="user">
+          <h12 th:text="${username}"></h12>
+      </div>
+    </div>
+</div>
+
+<div class="div4">
+<div class="center-buttons">
+    <button type="button" onclick="showTable('libraryBooksTable')" class="image">Library Books</button>
+        <button type="button" onclick="showTable('historyTable')" class="image">History</button>
+        <button type="button" onclick="showTable('fineTable')" class="image">Fine</button>
+</div>
+
+<div class="div5">
+<div id="libraryBooksTable" style="display:none;" class="container">
+    <table  align="center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Book ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book:${bookdata}">
+                <td th:text="${book.id}"></td>
+                <td th:text="${book.bookname}"></td>
+                <td th:text="${book.author}"></td>
+                <td th:text="${book.bookid}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="historyTable" style="display:none;"class="container">
+    <table align="center">
+        <thead>
+            <tr>
+                <th>Name</th>	
+                <th>Roll Number</th>
+                <th>Book Name</th>
+                <th>Taken Date</th>
+                <th>Submit Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="record : ${userdata}">
+                <td th:text="${record.name}"></td>
+                <td th:text="${record.rollno}"></td>
+                <td th:text="${record.bookname}"></td>
+                <td th:text="${record.date}"></td>
+                <td th:text="${record.sdate}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="fineTable" style="display:none;" class="container">
+    <table align="center">
+        <thead>
+            <tr>
+                <th>Roll Number</th>
+                <th>Book Name</th>
+                <th>Fine Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="fine:${finedata}">
+                <td th:text="${fine.rollno}"></td>
+                <td th:text="${fine.bookname}"></td>
+                <td th:text="${fine.fine}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+<script>
+    function showTable(sectionId) {
+        // Hide all sections first
+        document.getElementById("libraryBooksTable").style.display = "none";
+        document.getElementById("historyTable").style.display = "none";
+        document.getElementById("fineTable").style.display = "none";
+
+        // Show the clicked section
+        document.getElementById(sectionId).style.display = "block";
+    }
+</script>
+
+</body>
+</html>
